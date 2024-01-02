@@ -22,8 +22,26 @@
 // ao final de cada entrada de dados, perguntar se o usuário deseja continuar (s) ou não (n) a entrada de dados;
 
 // caso o usuário encerre o sistema, apresentar a mensagem "Sistema encerrado".
-
-var produtoUnico = prompt('Insira o Saldo de Estoque de produtos');
-var estoque = produtoUnico ;
-var compra = estoque - 1 ;
-var venda = estoque + 1 ;
+saldo = Number(prompt("Informar saldo inicial"));
+document.write("Saldo inicial: " + saldo + "<br>");
+encerrar = "n";
+while(encerrar == "n"){
+    operacao = Number(prompt("Informar tipo de operação"));
+    quantidade = Number(prompt("Informar quantidade"));
+    if(operacao == 1){
+        saldo = saldo + quantidade;
+        document.write("Entrada: " + quantidade + "<br>");
+    }
+    if(operacao == 2){
+        if(saldo >= quantidade){
+            saldo = saldo - quantidade;
+            document.write("Saída: " + quantidade + "<br>");
+        }else{
+            document.write("Saldo insuficiente" + "<br>");
+            alert("Saldo insuficiente");
+        }
+    }
+    document.write("Saldo: " + saldo + "<br>");
+    encerrar = prompt("Deseja encerrar ? (s/n)");
+};
+document.write("Sistema encerrado pelo usuario" + "<br>");
